@@ -2,6 +2,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Files;
+import java.util.HashMap;
+import java.util.Map;
 
 public class HttpResponse{
     private OutputStream output;
@@ -27,12 +29,12 @@ public class HttpResponse{
     }
 
     public String statusText(int statusCode){
-        return switch (statusCode){
-            case 200 -> "OK";
-            case 404 -> "Not Found";
-            case 400 -> "Bad Request";
-            case 500 -> "Internal Server Error";
-            default  -> "Unknown";
-        };
+        Map<Integer, String> statusCodes = new HashMap<>();
+        statusCodes.put(200, "OK");
+        statusCodes.put(201, "Created");
+        statusCodes.put(404, "Not Found");
+        statusCodes.put(400, "Bad Request");
+        statusCodes.put(500, "Internal Server Error");
+        return statusCodes.get(statusCode);
     }
 }

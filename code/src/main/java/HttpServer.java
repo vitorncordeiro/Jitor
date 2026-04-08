@@ -1,3 +1,5 @@
+import logging.Logger;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -21,7 +23,7 @@ public class HttpServer {
 
     public void start() throws IOException {
         ServerSocket server = new ServerSocket(port);
-        System.out.println("Http server starting at " + port + " port");
+        Logger.info("Http server starting at " + port + " port");
 
         while(true){
             Socket socket = server.accept();
@@ -43,6 +45,8 @@ public class HttpServer {
             switch(request.getPath()){
                 case "/", "/index.html"-> response.sendText(200,
                         new File( PUBLIC_PACKAGE_PATH + "index.html"));
+                //case "/json" -> response.sendText(201,
+                //        new File(PUBLIC_PACKAGE_PATH));
                 default -> response.sendText(404,
                         new File( PUBLIC_PACKAGE_PATH + "404.html"));
 

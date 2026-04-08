@@ -41,6 +41,15 @@ public class HttpRequest {
             reader.read(buffer, 0, length);
             body = new String(buffer);
         }
+        String parsedData = parseJson(body);
         return new HttpRequest(method, path, headers, body);
     }
+
+    public static String parseJson(String jsonRequest){
+        
+        return "";
+        //fazer o split pro json e ir colocando num MAP ou list pra separar o que é primitivo, array e objeto.
+    }
+
+
 }
