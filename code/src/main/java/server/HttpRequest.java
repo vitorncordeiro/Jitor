@@ -1,3 +1,5 @@
+package server;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.HashMap;
@@ -31,7 +33,6 @@ public class HttpRequest {
         while(!(headerLine = reader.readLine()).isEmpty()){
             String[] kv = headerLine.split(":", 2);
             headers.put(kv[0].trim(), kv[1].trim());
-            System.out.println(headerLine);
         }
 
         String body = "";
@@ -41,15 +42,10 @@ public class HttpRequest {
             reader.read(buffer, 0, length);
             body = new String(buffer);
         }
-        String parsedData = parseJson(body);
+
         return new HttpRequest(method, path, headers, body);
     }
 
-    public static String parseJson(String jsonRequest){
-        
-        return "";
-        //fazer o split pro json e ir colocando num MAP ou list pra separar o que é primitivo, array e objeto.
-    }
 
 
 }

@@ -1,3 +1,5 @@
+package server;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -16,10 +18,12 @@ public class HttpResponse{
         String statusText = statusText(statusCode);
 
         String headers =
-                "Http/1.1 " + statusCode + " " + statusText + "\r\n" +
+                "HTTP/1.1 " + statusCode + " " + statusText + "\r\n" +
                 "Content-Type: " + contentType + "\r\n" +
                 "Content-Length: " + body.length + "\r\n" +
                 "\r\n";
+
+        System.out.println("\n" + headers + "\n");
         output.write(headers.getBytes());
         output.write(body);
         output.flush();

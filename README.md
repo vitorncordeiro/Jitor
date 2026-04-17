@@ -30,9 +30,9 @@ JavaHttpServer/
     pom.xml
     src/main/java/
       Main.java
-      HttpServer.java
-      HttpRequest.java
-      HttpResponse.java
+      server.HttpServer.java
+      server.HttpRequest.java
+      server.HttpResponse.java
       logging/Logger.java
       public/
         index.html
@@ -41,12 +41,12 @@ JavaHttpServer/
 
 ## How It Works
 
-1. `Main` creates `HttpServer(8080, 2)` and starts it.
-2. `HttpServer` listens on port `8080`.
+1. `Main` creates `server.HttpServer(8080, 2)` and starts it.
+2. `server.HttpServer` listens on port `8080`.
 3. Each accepted socket is handled by the fixed thread pool.
-4. `HttpRequest.parse(...)` reads request line, headers, and optional body.
-5. `HttpServer` chooses which HTML file to return based on the path.
-6. `HttpResponse` writes an HTTP/1.1 response to the socket output stream.
+4. `server.HttpRequest.parse(...)` reads request line, headers, and optional body.
+5. `server.HttpServer` chooses which HTML file to return based on the path.
+6. `server.HttpResponse` writes an HTTP/1.1 response to the socket output stream.
 
 ## Run Locally
 
