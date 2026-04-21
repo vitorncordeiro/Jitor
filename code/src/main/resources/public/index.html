@@ -191,6 +191,7 @@
         .box:nth-child(2) { animation-delay: 0.3s; }
         .box:nth-child(3) { animation-delay: 0.5s; }
         .box:nth-child(4) { animation-delay: 0.7s; }
+        .box:nth-child(5) { animation-delay: 0.9s; }
 
         @keyframes fade-in {
             to { opacity: 1; transform: translateY(0); }
@@ -216,6 +217,7 @@
         .box:nth-child(2)::after { animation-delay: -1s; }
         .box:nth-child(3)::after { animation-delay: -2s; }
         .box:nth-child(4)::after { animation-delay: -3s; }
+        .box:nth-child(5)::after { animation-delay: -4s; }
 
         .box:hover {
             border-color: var(--green);
@@ -395,6 +397,7 @@
     <a href="#about">ABOUT</a>
     <a href="#how-it-works">HOW IT WORKS</a>
     <a href="#advantages">ADVANTAGES</a>
+    <a href="#tests">TESTS</a>
     <a href="#technology">TECHNOLOGY</a>
 </nav>
 
@@ -486,18 +489,9 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-    <div class="box" id="post">
+    <div class="box" id="tests">
         <div class="box-title-bar">
-            <span>&gt; POST - JSON Parser</span>
+            <span>&gt; TESTING FRAMEWORK</span>
             <div class="box-controls">
                 <div class="box-ctrl"></div>
                 <div class="box-ctrl"></div>
@@ -507,23 +501,33 @@
         <div class="box-body">
             <div class="prompt-line">
                 <span class="ps">root@jitor:~$</span>
-                <span class="typewriter delay2">parse --input body.json</span>
+                <span class="typewriter">mvn test --verbose</span>
             </div>
+            <p>
+                <strong>Jitor</strong> employs a comprehensive testing strategy combining unit and
+                integration tests to ensure reliability and code quality.
+            </p>
+            <p><strong>Unit Tests:</strong></p>
+            <ul>
+                <li>Individual component validation (HttpRequest, HttpResponse)</li>
+                <li>Request parsing and response formatting verification</li>
+                <li>Edge case handling and error scenarios</li>
+            </ul>
+            <p style="margin-top: 12px;"><strong>Integration Tests:</strong></p>
+            <ul>
+                <li>End-to-end server communication flows</li>
+                <li>Multi-threaded request handling verification</li>
+                <li>Real HTTP client-server interactions</li>
+            </ul>
 
-
-
-
-
+            <div class="progress-container" style="margin-top: 14px;">
+                <div class="progress-label">TEST COVERAGE</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="--target-width: 92%;"></div>
+                </div>
+            </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
 
     <div class="box" id="technology">
         <div class="box-title-bar">
@@ -599,4 +603,4 @@
 </script>
 </body>
 </html>
-```
+
