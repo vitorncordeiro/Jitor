@@ -23,6 +23,17 @@ public class HttpRequest {
         return path;
     }
 
+    public String getMethod() {
+        return method;
+    }
+
+    public Map<String, String> getHeaders() {
+        return headers;
+    }
+
+    public String getBody() {
+        return body;
+    }
 
     public static HttpRequest parse(BufferedReader reader) throws IOException {
         String[] parts = reader.readLine().split(" ");
